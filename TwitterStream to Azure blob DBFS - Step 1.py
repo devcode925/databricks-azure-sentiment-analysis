@@ -74,12 +74,10 @@ dbutils.fs.mount( source = "abfss://twittercatcher@twitterblobber.dfs.core.windo
 # should use databricks secrets and the CLI to store and retrieve those keys in a safe way.
 #
 # for a first try, you can setup you twitter keys here
-consumer_key = "pQCeK1M8Q6hnwpPQV8Uzs7QG8"
-consumer_secret = "08qXyo3EoZInFbkPHTxGftPi8cW0bODuogUmgWXtGpPfncT61j"
-access_token = "1440828778955956233-8mU4smuEPIOCne5uqoX9jJB3R6mHOt"
-access_token_secret = "bPNPvtCFuhAxNJJvlzMmaPlEDkUX3UzYaLz4HfXLxa289"
-
-# in my demo, I read in the keys from another notebook in the cell below (which can be savely removed or commented out)
+consumer_key = "***"
+consumer_secret = "*****"
+access_token = "****"
+access_token_secret = "******"
 
 
 # COMMAND ----------
@@ -186,20 +184,12 @@ dbutils.notebook.exit("stop")
 # create a directory to buffer the streamed data
 !mkdir "/dbfs/mnt/tweet-holder/tweets"
 
-# COMMAND ----------
 
-# count files in that directory - compare with #files in DLT bronze
-#!ls -l /dbfs/mnt/tweet-holder/twitter_dataeng2 | wc
-
-# COMMAND ----------
-
-# disk usage
-#!du -h  dbfs/mnt/tweet-holder/twitter_dataeng2
 
 # COMMAND ----------
 
 '''# remove n files. use this to trim demo
-files = dbutils.fs.ls("/data/twitter_dataeng2")
+files = dbutils.fs.ls("/data/twitter_holder")
 del = 400
 print(f'number of files: {len(files)}')
 print(f'number of files to delete: {del}')
@@ -213,5 +203,5 @@ for x, file in enumerate(files):
 
     
 # use dbutils to copy over files... 
-# dbutils.fs.cp("/data/twitter_dataeng/" +f, "/data/twitter_dataeng2/")
+# dbutils.fs.cp("/data/twitter_dataeng/" +f, "/data/twitter_holder/")
 '''
