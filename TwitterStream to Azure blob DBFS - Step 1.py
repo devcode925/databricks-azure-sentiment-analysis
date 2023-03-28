@@ -63,8 +63,8 @@ df.show()
 ''' created the first time -- #used service principal, and secret, scopt didn't work for me.
 configs = {"fs.azure.account.auth.type": "OAuth",
           "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-          "fs.azure.account.oauth2.client.id": "704692c5-b46c-402d-bed0-ebf417f68948",
-          "fs.azure.account.oauth2.client.secret": "15z8Q~GwjFX32PBLC4ekN0QYw9ay-O5yu9tzUdex",
+          "fs.azure.account.oauth2.client.id": "***",
+          "fs.azure.account.oauth2.client.secret": "your-secret",
           "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/3ff9b47e-eced-43d3-b1f2-7315f4ec788c/oauth2/token"}
 dbutils.fs.mount( source = "abfss://twittercatcher@twitterblobber.dfs.core.windows.net/", mount_point = "/mnt/tweet-holder", extra_configs = configs)
 '''
@@ -81,14 +81,6 @@ access_token_secret = "bPNPvtCFuhAxNJJvlzMmaPlEDkUX3UzYaLz4HfXLxa289"
 
 # in my demo, I read in the keys from another notebook in the cell below (which can be savely removed or commented out)
 
-
-# COMMAND ----------
-
-# %run "./Twitter-Setup"
-
-# COMMAND ----------
-
-#!/databricks/python3/bin/python -m pip install --upgrade pip
 
 # COMMAND ----------
 
