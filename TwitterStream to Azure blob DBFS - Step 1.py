@@ -29,7 +29,7 @@
 #dbutils.fs.refreshMounts()
 #dbutils.fs.mkdirs("/mnt/tweet-holder")
 #dbutils.fs.mounts()
-# client id for configs is the applicationid in for my service principal 704692c5-b46c-402d-bed0-ebf417f68948
+# client id for configs is the applicationid in for my service principal 
 
 # COMMAND ----------
 
@@ -40,8 +40,6 @@
 # MAGIC 
 # MAGIC -- create database connector https://portal.azure.com/?quickstart=true#view/HubsExtension/BrowseResource/resourceType/Microsoft.Databricks%2FaccessConnectors
 # MAGIC 
-# MAGIC 
-# MAGIC f7eae66d-6509-4d5d-a514-cac8fa836db0
 # MAGIC   "fs.azure.account.oauth2.client.secret": dbutils.secrets.get(scope="azure-storage",key="blob-storage-databricks"),
 
 # COMMAND ----------
@@ -60,7 +58,7 @@ df.show()
 
 # COMMAND ----------
 
-''' created the first time -- #used service principal, and secret, scopt didn't work for me.
+''' created the first time -- #used service principal, and secret, scope didn't work for me.
 configs = {"fs.azure.account.auth.type": "OAuth",
           "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
           "fs.azure.account.oauth2.client.id": "***",
@@ -73,7 +71,6 @@ dbutils.fs.mount( source = "abfss://twittercatcher@twitterblobber.dfs.core.windo
 
 # should use databricks secrets and the CLI to store and retrieve those keys in a safe way.
 #
-# for a first try, you can setup you twitter keys here
 consumer_key = "***"
 consumer_secret = "*****"
 access_token = "****"
